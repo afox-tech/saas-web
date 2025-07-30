@@ -3,6 +3,7 @@ import Link from "next/link";
 import prisma from "@/lib/db";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import ThumbnailPreviewer from "./_components/thumbnail-previewer";
 
 export default async function Dashboard() {
     const { userId } = await auth();
@@ -34,6 +35,7 @@ export default async function Dashboard() {
     return (
         <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-md">
             <p className="text-lg mb-6">Subscribed to the app</p>
+            <ThumbnailPreviewer channelNameSaved="test" />
         </div>
     );
 }

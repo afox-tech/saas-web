@@ -1,6 +1,7 @@
 import { Hero } from "@/components/landing-page/Hero";
 import { Steps } from "@/components/landing-page/Steps";
 import { Demo } from "@/components/landing-page/Demo";
+import { Faq } from "@/components/landing-page/Faq";
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
                     <Hero />
                     <Steps />
                     <Demo />
+                    <Faq />
                 </div>
             </div>
         </main>

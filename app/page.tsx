@@ -1,5 +1,6 @@
 import { Hero } from "@/components/landing-page/Hero";
 import { Steps } from "@/components/landing-page/Steps";
+import { Demo } from "@/components/landing-page/Demo";
 
 export default function Home() {
     return (
@@ -11,6 +12,7 @@ export default function Home() {
                 <div className="relative z-10 mx-auto flex flex-col">
                     <Hero />
                     <Steps />
+                    <Demo />
                 </div>
             </div>
         </main>

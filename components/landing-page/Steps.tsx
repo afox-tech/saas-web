@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import thumbnail1 from "@/app/assets/1.png";
 import thumbnail2 from "@/app/assets/2.png";
@@ -36,7 +38,10 @@ export function Steps() {
             <AnimationContainer delay={0.2} className="grid md:grid-cols-3">
                 {/* Step 1 */}
                 {StepsArray.map((step, index) => (
-                    <div className="relative group p-8 transition-all duration-300 bg-background/30 hover:bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-xl">
+                    <div
+                        key={index}
+                        className="relative group p-8 transition-all duration-300 bg-background/30 hover:bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-xl"
+                    >
                         <div className="mb-6 inline-flex items-center gap-3 p-4 rounded-2xl border border-primary/10">
                             <div className="p-2 bg-primary/10 rounded-xl">
                                 <Pencil className="w-5 h-5 text-primary" />
@@ -53,7 +58,15 @@ export function Steps() {
                                 src={step.image}
                                 alt={step.description}
                                 fill
+                                priority={index === 0}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-cover transition-all duration-500 group-hover:scale-105"
+                                onError={(e) => {
+                                    console.error(
+                                        "Image failed to load:",
+                                        step.image
+                                    );
+                                }}
                             />
                         </div>
                     </div>

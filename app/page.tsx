@@ -2,6 +2,7 @@ import { Hero } from "@/components/landing-page/Hero";
 import { Steps } from "@/components/landing-page/Steps";
 import { Demo } from "@/components/landing-page/Demo";
 import { Faq } from "@/components/landing-page/Faq";
+import { Pricing } from "@/components/landing-page/Pricing";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
                     <Steps />
                     <Demo />
                     <Faq />
+                    <Pricing />
                 </div>
             </div>
         </main>

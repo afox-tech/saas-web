@@ -28,7 +28,7 @@ export function Demo() {
                     rotateX,
                     transformPerspective: "700px",
                 }}
-                className="mt-14 rounded-xl overflow-hidden shadow-2xl shadow-purple-500/10 border border-foreground/10"
+                className="w-[300px] mx-auto md:w-full mt-14 rounded-xl overflow-hidden shadow-2xl shadow-purple-500/10 border border-foreground/10"
             >
                 <Image src={app} alt="app demo" className="w-full h-auto" />
             </motion.div>

@@ -2,6 +2,7 @@ import prisma from "@/lib/db";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { SubmitButton } from "@/components/SubmitButton";
 
 async function getData(userId: string) {
     const userData = await prisma.user.findUnique({
@@ -65,6 +66,7 @@ export default async function ProfilePage() {
                                 className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
                             />
                         </div>
+                        <SubmitButton />
                     </div>
                 </form>
             </div>

@@ -5,6 +5,19 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import ThumbnailPreviewer from "./_components/thumbnail-previewer";
 
+async function getChannelName(userId: string) {
+    const user = await prisma.user.findUnique({
+        where: {
+            id: userId,
+        },
+        select: {
+            channelName: true,
+        },
+    });
+
+    return user?.channelName || "";
+}
+
 export default async function Dashboard() {
     const { userId } = await auth();
 
@@ -32,10 +45,12 @@ export default async function Dashboard() {
         );
     }
 
+    const channelName = await getChannelName(userId);
+
     return (
         <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-md">
             <p className="text-lg mb-6">Subscribed to the app</p>
-            <ThumbnailPreviewer channelNameSaved="test" />
+            <ThumbnailPreviewer channelNameSaved={channelName} />
         </div>
     );
 }
